@@ -17,34 +17,34 @@ public class BoundingBox implements Visitor<Location> {
 
     @Override
     public Location onFill(final Fill f) {
-        return null;
+        return f.getShape().accept(this);
     }
 
     @Override
     public Location onGroup(final Group g) {
-
-        return null;
+        return g.accept(this);
     }
 
     @Override
     public Location onLocation(final Location l) {
-
-        return null;
+        return l.getShape().accept(this);
     }
 
     @Override
     public Location onRectangle(final Rectangle r) {
-        return null;
+        final int width = r.getWidth();
+        final int height = r.getHeight();
+        return new Location(0,0, new Rectangle(width, height));
     }
 
     @Override
     public Location onStrokeColor(final StrokeColor c) {
-        return null;
+        return c.accept(this);
     }
 
     @Override
     public Location onOutline(final Outline o) {
-        return null;
+        return o.accept(this);
     }
 
     @Override
