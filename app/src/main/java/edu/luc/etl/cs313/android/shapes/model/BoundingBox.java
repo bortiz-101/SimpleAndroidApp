@@ -51,7 +51,11 @@ public class BoundingBox implements Visitor<Location> {
 
     @Override
     public Location onStrokeColor(final StrokeColor c) {
-        return c.accept(this);
+        final var a = (Rectangle) c.getShape();
+        final int h = a.getHeight();
+        final int w = a.getWidth();
+        return new Location(0,0, new Rectangle(w,h));
+
     }
 
     @Override
