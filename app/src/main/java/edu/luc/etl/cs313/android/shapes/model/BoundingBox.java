@@ -29,7 +29,8 @@ public class BoundingBox implements Visitor<Location> {
 
     @Override
     public Location onGroup(final Group g) {
-        return g.accept(this);
+    return null;
+
     }
 
     @Override
