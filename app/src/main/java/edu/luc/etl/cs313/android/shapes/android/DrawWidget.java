@@ -36,6 +36,10 @@ public class DrawWidget extends View {
     protected void onDraw(final Canvas canvas) {
         final var shape = Fixtures.complexGroup;
         final var b = shape.accept(new BoundingBox());
+        // set the canvas to the top left
+        canvas.translate(-b.getX(), -b.getY());
         shape.accept(new Draw(canvas, paint));
+        // bring canvas back so draw is at origin
+        canvas.translate(b.getX(), b.getY());
     }
 }
