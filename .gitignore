@@ -33,5 +33,6 @@ local.properties
 # Gradle
 .gradle/
 
+
 # Mac files
 *.DS_Store
