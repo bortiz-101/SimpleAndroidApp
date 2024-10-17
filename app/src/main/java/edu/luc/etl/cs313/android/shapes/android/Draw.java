@@ -38,7 +38,7 @@ public class Draw implements Visitor<Void> {
 
     @Override
     public Void onFill(final Fill f) {
-        paint.setColor(f.getColor());
+        paint.setColor(f.get);
         paint.setStyle(Style.FILL);
         f.getShape().accept(this);
         return null;
