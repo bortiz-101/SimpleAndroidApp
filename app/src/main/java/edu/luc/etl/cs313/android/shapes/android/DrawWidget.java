@@ -38,6 +38,7 @@ public class DrawWidget extends View {
         final var b = shape.accept(new BoundingBox());
         // set the canvas to the top left
         canvas.translate(-b.getX(), -b.getY());
+        b.accept(new Draw(canvas, paint));
         shape.accept(new Draw(canvas, paint));
         // bring canvas back so draw is at origin
         canvas.translate(b.getX(), b.getY());
